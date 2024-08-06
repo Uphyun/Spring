@@ -1,0 +1,17 @@
+Annotation-based configuration방식
+spring 2.5부터
+
+XML-based configuration방식
+루트 앨리먼트 <beans/> 안에 <bean/> 앨리먼트를 이용하여 설정 
+
+Java-based configuration방식
+spring 3.0부터
+@Configuration, @Bean
+
+스프링부트 특징
+1. 톰켓을 요구하지 않음
+2. static => static한 파일(css, image, js 등)의 디폴트 경로
+3. application.properties : 스프링부트 설정 파일
+4. template : thymeleaf, freemarker 등 서버 사이트 템플릿 파일의 경로
+
+VO 는 service(주) 패키지에 들어감 mapper는 db 
