@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>	
+	<form th:action="@{/empInsert}" method="post"><!-- action에 등록을 처리하는 곳에 보내야함 -->
+		<h3>사원 정보 등록</h3>
+			<div>
+				<label for="name">이름</label>
+				<input type="text" id="name" name="lastName" />
+			</div>
+			<div>
+				<label for="email">이메일</label>
+				<input type="text" id="email" name="email"  />
+			</div>
+			<div>
+				<label for="hDate">입사일</label>
+				<input type="date" id="hDate" name="hireDate"  />
+			</div>
+			<div>
+				<label for="job">업무</label>
+				<input type="text" id="job" name="jobId"  />
+			</div>
+			<div>
+				<label for="sal">급여</label>
+				<input type="text" id="sal" name="salary"  />
+			</div>
+			<div>
+				<button type="submit">등록</button>
+			</div>	
+	</form>
+	<script>
+		e.preventDefault(submit);
+		if($('#name') == '' || $('#name') == null){;
+				alert("이름 값을 입력하세요")};
+		if($('#name') == '' || $('#name') == null){;
+				alert("이름 값을 입력하세요")};
+				
+			
+		
+	</script>
+</body>
+</html>

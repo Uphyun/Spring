@@ -58,7 +58,7 @@ public class EmpController {
 		// 3)데이터를 출력할 페이지 결정
 		//return "emp/info";
 		//classpath:/templates/ emp/info .html
-		return "Redirect:empList";
+		return "emp/info";
 	}
 	
 	//등록 - 페이지

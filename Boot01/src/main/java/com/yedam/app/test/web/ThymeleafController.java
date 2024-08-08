@@ -1,16 +1,21 @@
 package com.yedam.app.test.web;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import com.yedam.app.emp.service.EmpService;
 import com.yedam.app.emp.service.EmpVO;
 
-import lombok.AllArgsConstructor;
-
-@AllArgsConstructor
+@Controller
 public class ThymeleafController {
 	private EmpService empService;
+	
+	@Autowired
+	ThymeleafController(EmpService empService){
+		this.empService = empService;
+	}
 	
 	@GetMapping("thymeleaf")
 	public String thymeleafTest(Model model) {
@@ -19,6 +24,6 @@ public class ThymeleafController {
 		
 		EmpVO findVO = empService.empInfo(empVO);
 		model.addAttribute("empInfo", findVO);
-		return "test";
+		return "text";
 	}
 }
