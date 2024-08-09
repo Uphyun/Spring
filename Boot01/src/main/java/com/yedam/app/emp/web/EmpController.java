@@ -95,6 +95,7 @@ public class EmpController {
 	@ResponseBody //AJAX
 	public Map<String, Object> empupdateAJAXQueryString(EmpVO empVO){
 		return empService.empUpdate(empVO);
+		//contentType 지정할필요 없음 어차피 JSON임
 	}
 	
 	
@@ -106,6 +107,10 @@ public class EmpController {
 	 * @ResponseBody //AJAX public Map<String, Object>
 	 * empupdateAJAXJSON(@RequestBody EmpVO empVO){ return
 	 * empService.empUpdate(empVO); }
+	 * 
+	 *  i)contentType : 'application/json',
+				data : JSON.stringify(dataObj) //body
+		  반드시 보내줘야함
 	 */
 	//삭제 - 처리 : GET(넘길데이터가 별로 없을 때) POST(데이터가 많을 때)
 	@GetMapping("empDelete")

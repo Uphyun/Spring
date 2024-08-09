@@ -79,8 +79,17 @@
 			<version>3.0.3</version>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
-
+		<dependency>
+			<groupId>nz.net.ultraq.thymeleaf</groupId>
+			<artifactId>thymeleaf-layout-dialect</artifactId>
+			</dependency>
+			<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-aop -->
+		<dependency>
+		    <groupId>org.springframework.boot</groupId>
+		    <artifactId>spring-boot-starter-aop</artifactId>
+		    <version>3.3.2</version>
+		</dependency>
+	    </dependencies>
 	<build>
 		<plugins>
 			<plugin>

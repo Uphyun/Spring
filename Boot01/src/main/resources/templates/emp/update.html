@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="~{common/layouts/default_layout}"
+	  layout:fragment="Content">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<th:block th:replace="~{common/configs/default_config :: jQueryConfig}"></th:block>
+</head>
+<body>
+<form name = "updateForm" th:object="${emp}">
+		<h3>사원 정보 수정</h3>
+		<div>
+			<label for="eid">사원번호</label>
+			<input type="text" th:field=*{employeeId} readonly ><!-- *{객체안에 필드값을 불러올때 쓰는 표현식} -->
+		</div>
+		<div>
+			<label for="ename">이름</label>
+			<input type="text" th:field=*{lastName} >
+		</div>
+		<div>
+			<label for="email">이메일</label>
+			<input type="email" th:field=*{email}>
+		</div>
+		<div>
+			<label for="hDate">입사일</label>
+			<input type="date" th:field=*{hireDate}>
+		</div>
+		<div>
+			<label for="job">업무</label>
+			<input type="text" th:field=*{jobId}>
+		</div>
+		<div>
+			<label for="sal">급여</label>
+			<input type="number" th:field=*{salary}>
+		</div>
+		<div>
+			<button type="button" id="updateBtn">저장</button>
+		</div>
+		<div>
+			<button type="button" th:onclick="|location.href='@{/empList}'|">목록</button>
+		</div>
+	</form>
+	<script>
+	//form 태그내부에 잇는 데이터를 하나의 변수에 담아서 
+		$('#updateBtn').on('click',updateAjax);
+		
+		function updateAjax(e){
+			//1) 보낼데이터 가져오기
+			let dataObj = getFormData();
+			//2) AJAX
+			$.ajax('empUpdate',{
+				type : 'post', //method
+				contentType : 'application/json',
+				data : JSON.stringify(dataObj) //body
+			})
+			.done(result => {
+				console.log(result)
+			})
+			.fail(err => console.log(err));
+		}
+		
+		function getFormData(){
+			let formAry = $('form[name = "updateForm"]').serializeArray();
+			
+			let formObj = {};
+			$.each(formAry,function(idx,tag){
+				//console.log(idx, tag);
+				//console.log(tag.name + ' : ' + tag.value);
+				
+				formObj[tag.name] = tag.value;
+			});
+			//console.clear();
+			//console.log(formObj);
+			return formObj;
+		}
+	</script>
+</body>
+</html>

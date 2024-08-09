@@ -68,8 +68,8 @@ public class EmpServiceImpl implements EmpService {
 		
 		return map;
 		
-		// 실행실패 { "employeeId" : 104}
-		// 정상실행 {}
+		// 정상실행 { "employeeId" : 104}
+		// 실행실패 {}
 	}
 }
 
