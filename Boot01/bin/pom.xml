@@ -89,12 +89,6 @@
 		    <artifactId>spring-boot-starter-aop</artifactId>
 		    <version>3.3.2</version>
 		</dependency>
-		<dependency>
-		    <groupId>org.projectlombok</groupId>
-		    <artifactId>lombok</artifactId>
-		    <version>1.18.28</version> <!-- 최신 버전으로 업데이트 필요 -->
-		    <scope>provided</scope>
-		</dependency>
 	    </dependencies>
 	<build>
 		<plugins>

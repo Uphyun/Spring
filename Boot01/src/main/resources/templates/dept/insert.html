@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="~{common/layouts/default_layout}"
+	  layout:fragment="Content">
+<head>
+<meta charset="UTF-8">
+<th:block th:replace="~{common/configs/default_config :: jQueryConfig}"></th:block>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<title>Insert title here</title>
+</head>
+<body>	
+	<form name = "insertForm" th:action = "@{/deptInsert}" method="post"><!-- action에 등록을 처리하는 곳에 보내야함 -->
+		<h3>사원 정보 등록</h3>
+			<div>
+				<label for="did">부서번호</label>
+				<input type="text" id="did" name="departmentId" />
+			</div>
+			<div>
+				<label for="deptName">부서이름</label>
+				<input type="text" id="name" name="departmentName" />
+			</div>
+			<div>
+				<label for="mid">매니저번호</label>
+				<input type="text" id="mid" name="managerId"  />
+			</div>
+			<div>
+				<label for="locationId">지역번호</label>
+				<input type="text" id="locationId" name="locationId"  />
+			</div>
+			<div>
+				<button type="submit">등록</button>
+			</div>	
+	</form>
+	<script>
+		$('form[name = "insertForm"]').on('submit',insertHandler);
+		
+		function insertHandler(event){
+			event.preventDefault();
+			
+			let did = $('input[name="departmentId"]');
+			if(did.val() == ''){
+				alert('부서이름이 입력되지 않았습니다,');
+				did.focus();
+				return;
+			}
+
+			let deptName = $('input[name="departmentName"]');
+			if(deptName.val() == ''){
+				alert('부서이름이 입력되지 않았습니다,');
+				deptName.focus();
+				return;
+			}
+			
+			let managerId = $('input[name="managerId"]');
+			if(managerId.val() == ''){
+				alert('매니저 이름이 입력되지 않았습니다,');
+				managerId.focus();
+				return;
+			}
+			
+			let locationId = $('input[name="locationId"]');
+			if(locationId.val() == ''){
+				alert('지역번호가 입력되지 않았습니다,');
+				locationId.focus();
+				return;
+			}
+			insertForm.submit();
+		}
+	</script>
+
+</body>
+</html>

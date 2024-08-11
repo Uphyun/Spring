@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="~{common/layouts/default_layout}"
+	  layout:fragment="Content">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<th:block th:replace="~{common/configs/default_config :: jQueryConfig}"></th:block>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>	
+	<form name = "insertForm" th:action = "@{/empInsert}" method="post"><!-- action에 등록을 처리하는 곳에 보내야함 -->
+		<h3>사원 정보 등록</h3>
+			<div>
+				<label for="name">이름</label>
+				<input type="text" id="name" name="lastName" />
+			</div>
+			<div>
+				<label for="email">이메일</label>
+				<input type="text" id="email" name="email"  />
+			</div>
+			<div>
+				<label for="hDate">입사일</label>
+				<input type="date" id="hDate" name="hireDate"  />
+			</div>
+			<div>
+				<label for="job">업무</label>
+				<input type="text" id="job" name="jobId"  />
+			</div>
+			<div>
+				<label for="sal">급여</label>
+				<input type="text" id="sal" name="salary"  />
+			</div>
+			<div>
+				<button type="submit">등록</button>
+			</div>	
+	</form>
+	<script>
+		$('form[name = "insertForm"]').on('submit',insertHandler);
+		
+		function insertHandler(event){
+			event.preventDefault();
+			
+			let name = $('input[name="lastName"]');
+			if(name.val() == ''){
+				alert('이름이 입력되지 않았습니다,');
+				name.focus();
+				return;
+			}
+			
+			let email = $('input[name="email"]');
+			if(email.val() == ''){
+				alert('이메일이 입력되지 않았습니다,');
+				email.focus();
+				return;
+			}
+			
+			let date = $('input[name="hireDate"]');
+			if(date.val() == ''){
+				alert('날짜가 입력되지 않았습니다,');
+				date.focus();
+				return;
+			}
+			
+			let jobId = $('input[name="jobId"]');
+			if(jobId.val() == ''){
+				alert('직업이 입력되지 않았습니다,');
+				jobId.focus();
+				return;
+			}
+			
+			let salary = $('input[name="salary"]');
+			if(salary.val() <= 0){
+				alert('급여가 최소한 0보다 커야 합니다.');
+				salary.focus();
+				return;
+			}
+			insertForm.submit();
+		}
+	</script>
+
+</body>
+</html>

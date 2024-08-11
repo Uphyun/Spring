@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	  layout:decorate="~{common/layouts/default_layout}"
+	  layout:fragment="Content">
+<head>
+<meta charset="UTF-8">
+<meta name="contextPath" th:value=${contextPath}>
+<title>Insert title here</title>
+</head>
+<body>
+	<div>
+		<h3>전체 사원 조회</h3>
+		<table>
+			<thead>
+				<tr>
+					<th>No.</th>
+					<th>부서번호</th>
+					<th>부서이름</th>
+					<th>매니저번호</th>
+					<th>지역번호</th>
+				</tr>
+			</thead>
+			<tbody>
+				<th:block th:each="info, stats : ${depts}">
+				<!-- 반복하고자 하는 태그 -->
+				<!-- <tr th:onclick="|location.href='@{/empInfo(employeeId=${info.employeeId})}'|"> -->
+				<tr th:onclick="|location.href='@{/deptInfo(departmentId=${info.departmentId})}'|">
+					<td>[[${stats.count}]]</td>
+					<td th:text="${info.departmentId}"></td>
+					<td th:text="${info.departmentName}"></td>
+					<td>[[ ${info.managerId} ]]</td>
+					<td>[[${info.locationId}]]</td>
+				</tr>
+				</th:block>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
