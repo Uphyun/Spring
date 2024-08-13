@@ -18,13 +18,13 @@
 
 </select>
 <update id="updateDept" >
-	UPDATE TO departments
+	UPDATE departments
 	SET 
-		   department_name = #{departmentName}
-		  , manager_id = #{managerId}
-		  , location_id = #{locationId}
+		   department_name = #{dept.departmentName}
+		  , manager_id = #{dept.managerId}
+		  , location_id = #{dept.locationId}
 		
-	WHERE department_id = #{departmentId}
+	WHERE department_id = #{id}
 </update>
 <insert id="insertDept" parameterType="DeptVO">
 	INSERT INTO departments

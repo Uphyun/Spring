@@ -13,27 +13,27 @@
 		<h3>사원 정보 수정</h3>
 		<div>
 			<label for="eid">사원번호</label>
-			<input type="text" th:field=*{employeeId} readonly ><!-- *{객체안에 필드값을 불러올때 쓰는 표현식} -->
+			<input type="text" th:field=*{emp.employeeId} readonly ><!-- *{객체안에 필드값을 불러올때 쓰는 표현식} -->
 		</div>
 		<div>
 			<label for="ename">이름</label>
-			<input type="text" th:field=*{lastName} >
+			<input type="text" th:field=*{emp.lastName} >
 		</div>
 		<div>
 			<label for="email">이메일</label>
-			<input type="email" th:field=*{email}>
+			<input type="email" th:field=*{emp.email}>
 		</div>
 		<div>
 			<label for="hDate">입사일</label>
-			<input type="date" th:field=*{hireDate}>
+			<input type="date" th:field=*{emp.hireDate}>
 		</div>
 		<div>
 			<label for="job">업무</label>
-			<input type="text" th:field=*{jobId}>
+			<input type="text" th:field=*{emp.jobId}>
 		</div>
 		<div>
 			<label for="sal">급여</label>
-			<input type="number" th:field=*{salary}>
+			<input type="number" th:field=*{emp.salary}>
 		</div>
 		<div>
 			<button type="button" id="updateBtn">저장</button>
